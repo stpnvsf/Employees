@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  sql-server:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    user: root
+    ports:
+      - "1433:1433"
+    environment:
+      MSSQL_SA_PASSWORD: "Test-1Pass"
+      ACCEPT_EULA: "Y"
+    volumes:
+      - db_data:/var/opt/mssql/data
+
+volumes:
+  db_data:
